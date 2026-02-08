@@ -151,12 +151,12 @@ MIT
 
 Reproduce the working CLI in any environment:
 
+Note: `demo_outputs/` is generated locally by `demo` and is intentionally ignored by git.
+
 ```bash
 cargo test --all
 cargo run -- --help
 cargo run -- demo
-
-Note: `demo_outputs/` is generated locally by `demo` and is intentionally ignored by git.
 
 # strict fixtures must be clean (exit 0)
 cargo run -- selftest --fixtures tests/fixtures/clean/soap --template soap --strict
