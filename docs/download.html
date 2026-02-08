@@ -36,21 +36,19 @@
         <div class="download-card">
           <h3>Linux x86_64 (optional)</h3>
           <a class="btn ghost" href="downloads/clinote-x86_64-unknown-linux-musl.tar.gz">clinote-x86_64-unknown-linux-musl.tar.gz</a>
-        </div>
-        <div class="download-card">
-          <h3>macOS (optional)</h3>
-          <a class="btn ghost" href="downloads/clinote-macos">clinote-macos</a>
-        </div>
-        <div class="download-card">
-          <h3>Windows (optional)</h3>
-          <a class="btn ghost" href="downloads/clinote-windows.exe">clinote-windows.exe</a>
-        </div>
-      </div>
+        </div></div>
 
       <div class="panel-card">
         <h2>Install</h2>
-        <pre class="code-block"><code>chmod +x ./clinote-aarch64-linux
-./clinote-aarch64-linux --help</code></pre>
+        <pre class="code-block"><code># Linux aarch64
+curl -LO ./downloads/clinote-aarch64-unknown-linux-musl.tar.gz
+tar -xzf clinote-aarch64-unknown-linux-musl.tar.gz
+./clinote --help
+
+# Linux x86_64
+curl -LO ./downloads/clinote-x86_64-unknown-linux-musl.tar.gz
+tar -xzf clinote-x86_64-unknown-linux-musl.tar.gz
+./clinote --help</code></pre>
         <p class="muted">You can rename the binary to <code>clinote</code> for convenience.</p>
       </div>
     </section>
