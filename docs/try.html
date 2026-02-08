@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Try StructaMed</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .try-grid { display: grid; gap: 16px; }
+    .try-card { border: 1px solid rgba(0,0,0,.12); border-radius: 14px; padding: 16px; background: #fff; }
+    .try-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.15);
+    }
+    .small { min-height: 120px; }
+    .hint { color: rgba(0,0,0,.65); font-size: 0.95rem; }
+    .kbd { font-family: ui-monospace, monospace; padding: 2px 6px; border: 1px solid rgba(0,0,0,.15); border-radius: 6px; background: rgba(0,0,0,.03); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="StructaMed logo" />
+        <span>StructaMed</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="docs.html">Docs</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="download.html">Download</a>
+        <a href="try.html" class="active">Try it</a>
+        <a href="https://github.com/owusurita529-sys/StructaMed" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section narrow">
+      <h1>Try StructaMed</h1>
+      <p class="lead">No install required to understand the workflow. Copy a sample note + commands, then run locally.</p>
+
+      <div class="panel-card">
+        <h2>How to run (local)</h2>
+        <pre class="code-block"><code># From the repo root:
+cargo build --release
+BIN=./target/release/clinote
+
+# Save a sample note to note.txt, then:
+$BIN preview note.txt --template soap
+$BIN validate note.txt --template soap --strict --json | python3 -m json.tool
+$BIN parse --input note.txt --format soap --out out.json --out-format json
+cat out.json</code></pre>
+        <p class="hint">Tip: Start with <span class="kbd">preview</span> to see detected sections.</p>
+      </div>
+
+      <div class="try-grid">
+
+        <div class="try-card">
+          <h2>SOAP sample (clean)</h2>
+          <div class="try-row">
+            <button class="btn primary" data-copy="#soap-note">Copy note</button>
+            <button class="btn ghost" data-copy="#soap-cmds">Copy commands</button>
+          </div>
+          <textarea id="soap-note">Subjective:
+Patient reports sore throat x2 days. No dyspnea. No chest pain.
+
+Objective:
+Temp 37.6C. Oropharynx mildly erythematous. Lungs clear.
+
+Assessment:
+Likely viral pharyngitis based on symptoms and benign exam.
+No signs of pneumonia or airway compromise.
+
+Plan:
+Supportive care, fluids, acetaminophen PRN. Return if worse.</textarea>
+
+          <p class="hint">Commands:</p>
+          <textarea class="small" id="soap-cmds">cat > note.txt <<'NOTE'
+(paste SOAP note here)
+NOTE
+
+BIN=./target/release/clinote
+$BIN preview note.txt --template soap
+$BIN validate note.txt --template soap --strict --json | python3 -m json.tool
+$BIN parse --input note.txt --format soap --out out.json --out-format json
+cat out.json</textarea>
+
+          <p class="hint">Expected: strict validate = 0 warnings/errors.</p>
+        </div>
+
+        <div class="try-card">
+          <h2>H&amp;P sample (clean)</h2>
+          <div class="try-row">
+            <button class="btn primary" data-copy="#hp-note">Copy note</button>
+            <button class="btn ghost" data-copy="#hp-cmds">Copy commands</button>
+          </div>
+          <textarea id="hp-note">Chief Complaint:
+Sore throat for 2 days with mild pain on swallowing; no shortness of breath.
+
+History of Present Illness:
+2 days sore throat with low-grade fever.
+No cough, no dyspnea, tolerating oral intake.
+
+Past Medical History:
+No chronic medical problems reported.
+
+Medications:
+No regular home medications. Took acetaminophen once today.
+
+Allergies:
+No known drug allergies. No food allergies reported.
+
+Physical Exam:
+General: well appearing, no acute distress.
+HEENT: mild pharyngeal erythema, no exudate.
+Lungs: clear to auscultation bilaterally.
+
+Assessment:
+Most consistent with viral pharyngitis given symptoms and benign exam.
+
+Plan:
+Supportive care, hydration, acetaminophen PRN.
+Return if worsening symptoms or breathing difficulty.</textarea>
+
+          <p class="hint">Commands:</p>
+          <textarea class="small" id="hp-cmds">cat > note.txt <<'NOTE'
+(paste H&P note here)
+NOTE
+
+BIN=./target/release/clinote
+$BIN preview note.txt --template hp
+$BIN validate note.txt --template hp --strict --json | python3 -m json.tool</textarea>
+
+          <p class="hint">Expected: strict validate = 0 warnings/errors.</p>
+        </div>
+
+        <div class="try-card">
+          <h2>Discharge sample (clean)</h2>
+          <div class="try-row">
+            <button class="btn primary" data-copy="#dc-note">Copy note</button>
+            <button class="btn ghost" data-copy="#dc-cmds">Copy commands</button>
+          </div>
+          <textarea id="dc-note">Admission Dx: Sore throat and dehydration concern; suspected viral pharyngitis.
+Discharge Dx: Viral pharyngitis.
+Admission Date: 2026-02-01
+Discharge Date: 2026-02-02
+Hospital Course: Admitted for observation due to sore throat and poor oral intake. Vitals remained stable with no respiratory distress. Symptoms improved with hydration and analgesia. No complications.
+Medications: Acetaminophen 500 mg PO every 6-8 hours as needed for pain/fever.
+Follow-up: Follow up with primary care in 3-5 days if symptoms persist. Return immediately for shortness of breath, inability to swallow, persistent high fever, or worsening symptoms.
+Disposition: Discharged home in stable condition.</textarea>
+
+          <p class="hint">Commands:</p>
+          <textarea class="small" id="dc-cmds">cat > note.txt <<'NOTE'
+(paste Discharge note here)
+NOTE
+
+BIN=./target/release/clinote
+$BIN preview note.txt --template discharge
+$BIN validate note.txt --template discharge --strict --json | python3 -m json.tool</textarea>
+
+          <p class="hint">Expected: strict validate = 0 warnings/errors.</p>
+        </div>
+
+      </div>
+
+      <div class="panel-card">
+        <h2>Messy input test (no crash)</h2>
+        <p class="muted">Warnings allowed, but the CLI should not crash.</p>
+        <pre class="code-block"><code>BIN=./target/release/clinote
+$BIN selftest --fixtures tests/fixtures --template soap</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>For demo use only. Synthetic data only.</p>
+  </footer>
+
+  <script>
+    async function copyTextFrom(selector) {
+      const el = document.querySelector(selector);
+      const text = el ? el.value : "";
+      await navigator.clipboard.writeText(text);
+    }
+
+    document.addEventListener("click", async (e) => {
+      const btn = e.target.closest("[data-copy]");
+      if (!btn) return;
+      const sel = btn.getAttribute("data-copy");
+      try {
+        await copyTextFrom(sel);
+        const old = btn.textContent;
+        btn.textContent = "Copied ✅";
+        setTimeout(() => (btn.textContent = old), 900);
+      } catch {
+        alert("Copy failed (clipboard permissions). Select the text and copy manually.");
+      }
+    });
+  </script>
+</body>
+</html>

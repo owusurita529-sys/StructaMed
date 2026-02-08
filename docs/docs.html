@@ -18,6 +18,7 @@
         <a href="docs.html" class="active">Docs</a>
         <a href="pricing.html">Pricing</a>
         <a href="download.html">Download</a>
+        <a href="try.html">Try it</a>
         <a href="https://github.com/owusurita529-sys/StructaMed" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </nav>
@@ -26,6 +27,20 @@
   <main>
     <section class="section narrow">
       <h1>CLI Usage</h1>
+
+      <h2 id="testing">Testing / QA</h2>
+      <p class="muted">Run these commands to confirm StructaMed works end-to-end (recommended before submission).</p>
+      <pre class="code-block"><code># Run full test suite
+cargo test --all
+
+# One-command smoke test
+./scripts/smoke.sh
+
+# Strict fixtures must exit 0
+cargo run -- selftest --fixtures tests/fixtures/clean/soap --template soap --strict
+cargo run -- selftest --fixtures tests/fixtures/clean/hp --template hp --strict
+cargo run -- selftest --fixtures tests/fixtures/clean/discharge --template discharge --strict</code></pre>
+
       <p class="muted"><strong>Note:</strong> Product name is StructaMed; the CLI command/binary name is <code>clinote</code>.</p>
       <pre class="code-block"><code>clinote parse --input note.txt --format soap \
   --out out.json --out-format json --bundle auto
