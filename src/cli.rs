@@ -19,7 +19,7 @@ use std::time::Instant;
 #[command(
     name = "clinote",
     version,
-    about = "Clinote CLI: deterministic clinical note structuring",
+    about = "StructaMed CLI (binary: clinote): deterministic clinical note structuring",
     after_help = "Examples:\n  clinote validate notes.txt --template soap --strict\n  clinote preview notes.txt --template hp\n  clinote init --path clinote.toml\n  clinote demo\n"
 )]
 pub struct Cli {
@@ -529,7 +529,7 @@ fn print_validation_text(reports: &[ValidationReport]) {
 }
 
 fn default_config_template() -> String {
-    let template = r#"# Clinote config template
+    let template = r#"# StructaMed config template
 # Customize section orders, aliases, and bundle delimiters.
 
 [formats.soap]
