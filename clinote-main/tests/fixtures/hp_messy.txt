@@ -1,0 +1,10 @@
+CC - chest discomfort
+History of Present Illness: started after climbing stairs.
+PMH: HTN, DM2
+Meds: lisinopril
+Allergies: NKDA
+ROS: denies fever
+Physical Exam:
+- mild distress
+Assessment: possible angina
+Plan: ECG, labs

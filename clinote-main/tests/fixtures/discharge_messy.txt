@@ -1,0 +1,8 @@
+Admission Dx: pneumonia
+Discharge Dx: resolved pneumonia
+Hospital Course:
+- IV antibiotics
+Medications: amoxicillin
+Follow-up: PCP in 1 week
+Disposition: home
+Instructions: return if SOB

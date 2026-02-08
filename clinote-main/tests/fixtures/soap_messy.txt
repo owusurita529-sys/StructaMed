@@ -1,0 +1,7 @@
+SUBJECTIVE: patient reports headache since yesterday.
+- took OTC meds
+Objective:
+BP 140/90
+Temp 98.6
+ASSESSMENT: likely tension headache.
+Plan: rest, hydration, follow-up.

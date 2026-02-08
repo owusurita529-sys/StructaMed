@@ -1,0 +1,39 @@
+[formats.soap]
+section_order = ["Subjective", "Objective", "Assessment", "Plan"]
+
+[formats.hp]
+section_order = [
+  "Chief Complaint",
+  "HPI",
+  "PMH",
+  "Medications",
+  "Allergies",
+  "ROS",
+  "Physical Exam",
+  "Assessment",
+  "Plan"
+]
+
+[formats.discharge]
+section_order = [
+  "Admission Dx",
+  "Discharge Dx",
+  "Hospital Course",
+  "Medications",
+  "Follow-up",
+  "Disposition",
+  "Instructions"
+]
+
+heading_aliases = { "Hx" = "PMH", "Dx" = "Assessment", "Admit Dx" = "Admission Dx" }
+
+enable_fallback_heuristics = true
+
+[bundle]
+mode_default = "auto"
+delimiters = ["----- NOTE -----", "=== VISIT ==="]
+
+[csv]
+layout = "wide"
+
+glob_default = "*.txt"
