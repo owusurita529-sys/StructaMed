@@ -1,6 +1,6 @@
-# StructaMed CLI
+# Clinote CLI
 
-StructaMed CLI converts unstructured clinical notes into deterministic, standardized formats (SOAP, H&P, Discharge Summary) for documentation quality, interoperability, and data consistency. It uses rules and configuration only (no ML summarization) and ships with synthetic demo data for exams and coursework.
+Clinote CLI converts unstructured clinical notes into deterministic, standardized formats (SOAP, H&P, Discharge Summary) for documentation quality, interoperability, and data consistency. It uses rules and configuration only (no ML summarization) and ships with synthetic demo data for exams and coursework.
 
 ## Problem statement
 Clinical notes arrive in wildly inconsistent shapes. As a student working with synthetic notes, I kept reformatting the same data to evaluate documentation quality and export to JSON/CSV. The manual cleanup was slow and error-prone, so I built a deterministic CLI that standardizes text with transparent rules and configurable mappings.
@@ -144,6 +144,7 @@ Optional:
 **Acquisition channels:** GitHub, university courses, informatics conferences, lab partnerships.
 
 ## Disclaimer
-StructaMed CLI is an educational tool using synthetic data only. It is not a medical device and does not guarantee legal or regulatory compliance.
+Clinote CLI is an educational tool using synthetic data only. It is not a medical device and does not guarantee legal or regulatory compliance.
 
 ## License
+MIT
