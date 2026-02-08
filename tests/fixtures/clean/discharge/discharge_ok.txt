@@ -1,0 +1,19 @@
+Admission Diagnosis:
+Viral pharyngitis.
+
+Discharge Diagnosis:
+Viral pharyngitis.
+
+Hospital Course:
+Stable vitals. Symptoms improved with supportive care.
+No complications noted.
+
+Discharge Medications:
+Acetaminophen as needed for pain/fever.
+
+Follow-up:
+Primary care follow-up in 3-5 days if not improving.
+
+Discharge Instructions:
+Hydration, rest, and return precautions discussed.
+Seek care if breathing difficulty, chest pain, or worsening symptoms.
