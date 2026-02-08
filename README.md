@@ -148,3 +148,18 @@ StructaMed CLI is an educational tool using synthetic data only. It is not a med
 
 ## License
 MIT
+
+## Proof / QA
+
+Reproduce the working CLI in any environment:
+
+```bash
+cargo test --all
+cargo run -- --help
+cargo run -- demo
+
+# strict fixtures must be clean (exit 0)
+cargo run -- selftest --fixtures tests/fixtures/clean/soap --template soap --strict
+cargo run -- selftest --fixtures tests/fixtures/clean/hp --template hp --strict
+cargo run -- selftest --fixtures tests/fixtures/clean/discharge --template discharge --strict
+```
