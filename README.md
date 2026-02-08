@@ -121,12 +121,10 @@ Artifacts will appear under GitHub Releases. The GitHub Pages binary remains sep
 
 ## Binary hosting for downloads
 Place compiled binaries in `docs/downloads/` so the download page can serve them. Required file:
-- `docs/downloads/clinote-aarch64-linux`
+- `docs/downloads/clinote-aarch64-unknown-linux-musl.tar.gz`
 
 Optional:
-- `docs/downloads/clinote-x86_64-linux`
-- `docs/downloads/clinote-macos`
-- `docs/downloads/clinote-windows.exe`
+- `docs/downloads/clinote-x86_64-unknown-linux-musl.tar.gz`
 
 ## GitHub Repo Setup Checklist
 - Set the GitHub repo **About** website to: `https://<your-username>.github.io/<repo-name>/`
