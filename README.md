@@ -170,3 +170,14 @@ cargo run -- selftest --fixtures tests/fixtures/clean/soap --template soap --str
 cargo run -- selftest --fixtures tests/fixtures/clean/hp --template hp --strict
 cargo run -- selftest --fixtures tests/fixtures/clean/discharge --template discharge --strict
 ```
+
+### Terminal gotcha (heredocs)
+If you see `bash: EOF: command not found`, your heredoc was not closed.
+
+Correct pattern:
+
+```bash
+cat > file.txt <<'EOF'
+hello
+EOF
+```
