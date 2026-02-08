@@ -1,17 +1,18 @@
 Chief Complaint:
-Sore throat.
+Sore throat for 2 days with mild pain on swallowing; no shortness of breath.
 
 History of Present Illness:
-2 days sore throat with low-grade fever. No cough. No dyspnea.
+2 days sore throat with low-grade fever.
+No cough, no dyspnea, tolerating oral intake.
 
 Past Medical History:
-No chronic illness reported.
+No chronic medical problems reported.
 
 Medications:
-None.
+No regular home medications. Took acetaminophen once today.
 
 Allergies:
-NKDA.
+No known drug allergies. No food allergies reported.
 
 Physical Exam:
 General: well appearing, no acute distress.
@@ -19,9 +20,8 @@ HEENT: mild pharyngeal erythema, no exudate.
 Lungs: clear to auscultation bilaterally.
 
 Assessment:
-Most consistent with viral pharyngitis.
-Low suspicion for bacterial infection at this time.
+Most consistent with viral pharyngitis given symptoms and benign exam.
 
 Plan:
-Supportive care and hydration. Acetaminophen PRN.
-Return if worsening symptoms or persistent fever.
+Supportive care, hydration, acetaminophen PRN.
+Return if worsening symptoms or breathing difficulty.
