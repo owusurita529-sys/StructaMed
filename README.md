@@ -156,6 +156,8 @@ cargo test --all
 cargo run -- --help
 cargo run -- demo
 
+Note: `demo_outputs/` is generated locally by `demo` and is intentionally ignored by git.
+
 # strict fixtures must be clean (exit 0)
 cargo run -- selftest --fixtures tests/fixtures/clean/soap --template soap --strict
 cargo run -- selftest --fixtures tests/fixtures/clean/hp --template hp --strict
