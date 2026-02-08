@@ -1,8 +1,8 @@
 use crate::config::Config;
 use crate::parser::{self, ParseOptions};
 use crate::render::{self, OutputFormat};
-use crate::validate::{self, Severity, Template, ValidationIssue};
 use crate::util;
+use crate::validate::{self, Severity, Template, ValidationIssue};
 use anyhow::{anyhow, Result};
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
@@ -172,7 +172,12 @@ fn process_file(
     }
 }
 
-fn summarize(fixtures: &str, template: Template, strict: bool, results: Vec<FileResult>) -> SelftestSummary {
+fn summarize(
+    fixtures: &str,
+    template: Template,
+    strict: bool,
+    results: Vec<FileResult>,
+) -> SelftestSummary {
     let mut total_files = 0;
     let mut total_notes = 0;
     let mut total_errors = 0;
@@ -227,10 +232,9 @@ pub fn summarize_text(summary: &SelftestSummary) -> String {
     out.push_str("Top failing files:\n");
     for result in &summary.top_failing {
         if result.errors > 0 || result.warnings > 0 || result.runtime_error.is_some() {
-            let reason = result
-                .runtime_error
-                .clone()
-                .unwrap_or_else(|| format!("{} errors, {} warnings", result.errors, result.warnings));
+            let reason = result.runtime_error.clone().unwrap_or_else(|| {
+                format!("{} errors, {} warnings", result.errors, result.warnings)
+            });
             out.push_str(&format!("- {}: {}\n", result.file, reason));
         }
     }

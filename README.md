@@ -151,6 +151,13 @@ MIT
 
 Reproduce the working CLI in any environment:
 
+Preview the website locally:
+
+```bash
+python3 -m http.server --directory docs 8000
+# open http://localhost:8000
+```
+
 Note: `demo_outputs/` is generated locally by `demo` and is intentionally ignored by git.
 
 ```bash
