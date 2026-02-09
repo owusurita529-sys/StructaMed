@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8" /></head>
+  <body>
+    <h1>clinote_wasm test</h1>
+    <pre id="out"></pre>
+
+    <script type="module">
+      import init, { ping } from "./wasm/clinote_wasm/pkg/clinote_wasm.js";
+
+      const out = document.getElementById("out");
+      out.textContent = "Loading wasm...\n";
+
+      try {
+        // Make path resolution bulletproof:
+        await init(new URL("./wasm/clinote_wasm/pkg/clinote_wasm_bg.wasm", import.meta.url));
+
+        out.textContent += "Loaded ✅\n";
+        out.textContent += "ping() => " + ping() + "\n";
+      } catch (e) {
+        out.textContent += "Failed ❌\n" + e + "\n";
+        console.error(e);
+      }
+    </script>
+  </body>
+</html>
