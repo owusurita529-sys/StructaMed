@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>StructaMed WASM Smoke Test</title>
+</head>
+<body>
+  <h1>StructaMed WASM Smoke Test</h1>
+  <p id="status">Loading wasm...</p>
+  <script type="module">
+    import init, { ping, default_format } from "./pkg/clinote_wasm.js";
+
+    const status = document.getElementById("status");
+
+    try {
+      await init(new URL("./pkg/clinote_wasm_bg.wasm", import.meta.url));
+      status.textContent = `WASM ready: ${ping()} (default format: ${default_format()})`;
+    } catch (err) {
+      status.textContent = "WASM failed to load.";
+      console.error(err);
+    }
+  </script>
+</body>
+</html>

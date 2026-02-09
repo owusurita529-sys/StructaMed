@@ -177,6 +177,7 @@ dependencies = [
  "csv",
  "glob",
  "inquire",
+ "js-sys",
  "once_cell",
  "regex",
  "serde",

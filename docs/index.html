@@ -58,6 +58,11 @@
           <p class="panel-title">Health informatics focus</p>
           <p>Documentation quality, data consistency, and interoperable exports built in.</p>
         </div>
+        <div class="panel-card">
+          <p class="panel-title">WebAssembly status</p>
+          <p id="wasm-status" class="wasm-status" data-state="loading">Loading wasm bundle...</p>
+          <p><a href="wasm-test.html">Open wasm smoke test</a></p>
+        </div>
       </div>
     </section>
 
@@ -137,6 +142,22 @@ Plan: NSAIDs, follow-up</code></pre>
   <footer class="footer">
     <p>StructaMed is an educational tool using synthetic demo data only. It is not a medical or legal compliance product.</p>
   </footer>
+
+  <script type="module">
+    import init, { ping, default_format } from "./pkg/clinote_wasm.js";
+
+    const status = document.getElementById("wasm-status");
+
+    try {
+      await init(new URL("./pkg/clinote_wasm_bg.wasm", import.meta.url));
+      status.dataset.state = "ok";
+      status.textContent = `WASM ready: ${ping()} (default format: ${default_format()})`;
+    } catch (err) {
+      status.dataset.state = "error";
+      status.textContent = "WASM failed to load. Re-run scripts/build_wasm_web.sh.";
+      console.error(err);
+    }
+  </script>
 </body>
 </html>
 <!-- refresh -->

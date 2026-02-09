@@ -1,4 +1,5 @@
 use anyhow::Result;
+#[cfg(not(target_arch = "wasm32"))]
 use chrono::Utc;
 use std::fs;
 use std::path::Path;
@@ -24,6 +25,12 @@ pub fn normalize_heading_key(input: &str) -> String {
     out.trim().to_string()
 }
 
+#[cfg(target_arch = "wasm32")]
+pub fn now_iso() -> String {
+    js_sys::Date::new_0().to_iso_string().into()
+}
+
+#[cfg(not(target_arch = "wasm32"))]
 pub fn now_iso() -> String {
     Utc::now().to_rfc3339()
 }
