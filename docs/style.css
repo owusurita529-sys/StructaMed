@@ -291,6 +291,23 @@ code {
   color: var(--muted);
 }
 
+.wasm-status {
+  margin: 0;
+  font-family: var(--mono-font);
+}
+
+.wasm-status[data-state="loading"] {
+  color: var(--accent-3);
+}
+
+.wasm-status[data-state="ok"] {
+  color: var(--accent-2);
+}
+
+.wasm-status[data-state="error"] {
+  color: #a73535;
+}
+
 .footer {
   padding: 32px 8vw 48px;
   border-top: 1px solid rgba(38, 70, 83, 0.08);

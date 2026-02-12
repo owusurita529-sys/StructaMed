@@ -19,6 +19,22 @@ cargo build --release
 ./target/release/clinote --help
 ```
 
+## Build targets (one command each)
+CLI build:
+```bash
+cargo build --release
+# expected: native binary at ./target/release/clinote
+```
+
+Web/WASM build for GitHub Pages:
+```bash
+bash scripts/build_wasm_web.sh
+# expected: deployable assets in docs/pkg/ and docs/wasm-test.html
+```
+
+GitHub Pages URL:
+`https://owusurita529-sys.github.io/StructaMed/`
+
 ## Quickstart commands
 ```bash
 # Convert a note
@@ -107,9 +123,9 @@ Bundled files are tricky because delimiters can be ambiguous and formats can be 
 Use `clinote sample` to generate synthetic notes plus gold JSON outputs in a folder. Bundle files are also generated if `--bundles` is provided.
 
 ## GitHub Pages deployment (/docs)
-1. Build the static website in `docs/` (already provided).
+1. Build/update web assets: `bash scripts/build_wasm_web.sh`
 2. In GitHub repo settings, enable Pages from branch `main` and folder `/docs`.
-3. Confirm your Pages URL works: `https://<your-username>.github.io/<repo-name>/`.
+3. Open: `https://owusurita529-sys.github.io/StructaMed/`.
 
 ## Release workflow
 Trigger a GitHub Release by tagging and pushing:
@@ -127,7 +143,7 @@ Optional:
 - `docs/downloads/clinote-x86_64-unknown-linux-musl.tar.gz`
 
 ## GitHub Repo Setup Checklist
-- Set the GitHub repo **About** website to: `https://<your-username>.github.io/<repo-name>/`
+- Set the GitHub repo **About** website to: `https://owusurita529-sys.github.io/StructaMed/`
 - Description suggestion: "Deterministic CLI to structure synthetic clinical notes into SOAP/H&P/Discharge formats (Rust)."
 - Topics to add: `rust`, `cli`, `health-informatics`, `clinical-notes`, `data-quality`, `serialization`, `deterministic`, `education`
 
