@@ -1,19 +1,18 @@
-# --- Keep language stats "Rust-only" ---
+# Hide docs site from GitHub language stats
+docs/** linguist-vendored
+docs/** linguist-documentation
 
-# Exclude docs site + generated wasm pkg from GitHub language stats
-docs/** linguist-detectable=false
-docs/pkg/** linguist-detectable=false
-docs/**/*.html linguist-detectable=false
-docs/**/*.css linguist-detectable=false
-docs/**/*.js linguist-detectable=false
-docs/**/*.wasm linguist-detectable=false
-docs/**/*.d.ts linguist-detectable=false
+# Hide generated wasm-pack output
+docs/pkg/** linguist-generated
+wasm/**/pkg/** linguist-generated
 
-# Exclude wasm-pack generated artifacts (if any)
-wasm/**/pkg/** linguist-detectable=false
+# Hide common web artifacts anywhere (in case they exist outside docs/)
+**/*.html linguist-vendored
+**/*.css linguist-vendored
+**/*.js linguist-vendored
+**/*.wasm linguist-vendored
+**/*.d.ts linguist-vendored
 
-# Exclude non-Rust config/lock files from language stats (optional but needed for 100%)
-Cargo.toml linguist-detectable=false
-Cargo.lock linguist-detectable=false
-**/*.toml linguist-detectable=false
-**/*.lock linguist-detectable=false
+# Optional: hide scripts/workflows if you want "100% Rust"
+**/*.sh linguist-vendored
+.github/** linguist-vendored
