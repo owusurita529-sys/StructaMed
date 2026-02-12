@@ -1,0 +1,19 @@
+# --- Keep language stats "Rust-only" ---
+
+# Exclude docs site + generated wasm pkg from GitHub language stats
+docs/** linguist-detectable=false
+docs/pkg/** linguist-detectable=false
+docs/**/*.html linguist-detectable=false
+docs/**/*.css linguist-detectable=false
+docs/**/*.js linguist-detectable=false
+docs/**/*.wasm linguist-detectable=false
+docs/**/*.d.ts linguist-detectable=false
+
+# Exclude wasm-pack generated artifacts (if any)
+wasm/**/pkg/** linguist-detectable=false
+
+# Exclude non-Rust config/lock files from language stats (optional but needed for 100%)
+Cargo.toml linguist-detectable=false
+Cargo.lock linguist-detectable=false
+**/*.toml linguist-detectable=false
+**/*.lock linguist-detectable=false
