@@ -16,3 +16,15 @@ wasm/**/pkg/** linguist-generated
 # Optional: hide scripts/workflows if you want "100% Rust"
 **/*.sh linguist-vendored
 .github/** linguist-vendored
+
+# --- Extra exclusions to reach "100% Rust" ---
+**/*.md linguist-vendored
+**/*.txt linguist-vendored
+**/*.yml linguist-vendored
+**/*.yaml linguist-vendored
+**/*.ts linguist-vendored
+**/*.py linguist-vendored
+**/*.gz linguist-vendored
+**/*.svg linguist-vendored
+**/.gitignore linguist-vendored
+LICENSE linguist-vendored
